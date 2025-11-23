@@ -1,0 +1,47 @@
+---
+let menuOpen = false;
+---
+
+<nav class="bg-white px-4 lg:px-16 py-0 flex items-center justify-between h-16 lg:h-[101px] relative">
+    <div class="logo w-[134px] h-[38px]">
+        <img src="/assets/fd7c5fb03872cd35450a08c9b60e0447b1322dbd.png" alt="Kino Logo" width="134" height="38">
+    </div>
+    <!-- Desktop Menu -->
+    <div class="hidden lg:flex menu gap-8 items-center">
+        <a href="#" class="menu-item text-base font-normal text-[#050606] hover:text-[#1f9738] flex items-center gap-1">Nosotros</a>
+        <a href="#" class="menu-item text-base font-normal text-[#050606] hover:text-[#1f9738] flex items-center gap-1">Servicios</a>
+        <a href="#" class="menu-item text-base font-normal text-[#050606] hover:text-[#1f9738] flex items-center gap-1">Unidades</a>
+        <div class="menu-item text-base font-normal text-[#050606] hover:text-[#1f9738] flex items-center gap-1">
+            Recursos
+            <svg class="chevron w-6 h-6 fill-[#050606]" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z"/>
+            </svg>
+        </div>
+    </div>
+    <!-- Desktop Contact -->
+    <button class="hidden lg:block contact-btn bg-[#1f9738] text-white border-none px-5 py-2 text-base font-medium cursor-pointer rounded hover:bg-[#166d2e]">Contacto</button>
+    <!-- Mobile Actions -->
+    <div class="lg:hidden flex gap-2 items-center">
+        <button class="bg-[#1f9738] text-white border-none px-5 py-1 text-base font-medium cursor-pointer rounded hover:bg-[#166d2e]">Contacto</button>
+        <button id="hamburger" class="w-12 h-12 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="#050606" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-white shadow-lg hidden flex-col items-center py-4 gap-4">
+        <a href="#" class="text-base font-normal text-[#050606] hover:text-[#1f9738]">Nosotros</a>
+        <a href="#" class="text-base font-normal text-[#050606] hover:text-[#1f9738]">Servicios</a>
+        <a href="#" class="text-base font-normal text-[#050606] hover:text-[#1f9738]">Unidades</a>
+        <a href="#" class="text-base font-normal text-[#050606] hover:text-[#1f9738]">Recursos</a>
+    </div>
+</nav>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden');
+    });
+</script>

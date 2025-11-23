@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "figma-dev-mode": {
+      "type": "sse",
+      "url": "http://127.0.0.1:3845/sse",
+      "alwaysAllow": [
+        "get_screenshot",
+        "get_variable_defs"
+      ]
+    },
+    "Astro docs": {
+      "type": "sse",
+      "url": "https://mcp.docs.astro.build/mcp"
+    },
+    "github": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "-e",
+        "GITHUB_TOOLSETS",
+        "-e",
+        "GITHUB_READ_ONLY",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE6tKjHX290hNg7JH7ER+DnFtAhQYAq4X0hwyu273Uyn santiago.orduno2000@gmail.com",
+        "GITHUB_TOOLSETS": "",
+        "GITHUB_READ_ONLY": ""
+      }
+    }
+  }
+}

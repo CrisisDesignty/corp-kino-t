@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporativo Kino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .navbar {
+            background-color: #ffffff;
+            padding: 0 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 101px;
+            box-sizing: border-box;
+        }
+        .navbar .logo {
+            width: 134px;
+            height: 38px;
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .navbar .menu-item {
+            font-size: 16px;
+            font-weight: 400;
+            color: #050606;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .navbar .menu-item:hover {
+            color: #1f9738;
+        }
+        .navbar .contact-btn {
+            background-color: #1f9738;
+            color: #ffffff;
+            border: none;
+            padding: 8px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .navbar .contact-btn:hover {
+            background-color: #166d2e;
+        }
+        .chevron {
+            width: 24px;
+            height: 24px;
+            fill: #050606;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="http://localhost:3845/assets/fd7c5fb03872cd35450a08c9b60e0447b1322dbd.png" alt="Kino Logo" width="134" height="38">
+        </div>
+        <div class="menu">
+            <a href="#" class="menu-item">Nosotros</a>
+            <a href="#" class="menu-item">Servicios</a>
+            <a href="#" class="menu-item">Unidades</a>
+            <div class="menu-item">
+                Recursos
+                <svg class="chevron" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
+        </div>
+        <button class="contact-btn">Contacto</button>
+    </nav>
+</body>
+</html>
