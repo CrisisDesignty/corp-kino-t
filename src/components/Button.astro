@@ -1,0 +1,92 @@
+---
+export interface Props {
+  icon?: string;
+  style?: "Primary" | "Secondary" | "Tertiary" | "Link";
+  small?: boolean;
+  alternate?: boolean;
+  iconPosition?: "No icon" | "Leading" | "Trailing" | "Only";
+  children?: string;
+}
+
+const {
+  icon,
+  style = "Primary",
+  small = false,
+  alternate = false,
+  iconPosition = "No icon",
+  children = "Botón"
+} = Astro.props;
+
+function getButtonClasses() {
+  const baseClasses = "box-border content-stretch flex items-center justify-center relative";
+
+  let styleClasses = "";
+  let textColor = "";
+  let iconColor = "";
+
+  if (style === "Primary") {
+    if (alternate) {
+      styleClasses = "bg-white border border-white border-solid";
+      textColor = "text-neutral-darkest";
+      iconColor = "text-neutral-darkest";
+    } else {
+      styleClasses = "bg-denim border border-denim border-solid";
+      textColor = "text-white";
+      iconColor = "text-white";
+    }
+  } else if (style === "Secondary") {
+    if (alternate) {
+      styleClasses = "border border-white/20 border-solid";
+      textColor = "text-white";
+      iconColor = "text-white";
+    } else {
+      styleClasses = "border border-neutral-darkest/15 border-solid";
+      textColor = "text-neutral-darkest";
+      iconColor = "text-neutral-darkest";
+    }
+  } else if (style === "Tertiary") {
+    styleClasses = "";
+    if (alternate) {
+      textColor = "text-white";
+      iconColor = "text-white";
+    } else {
+      textColor = "text-neutral-darkest";
+      iconColor = "text-neutral-darkest";
+    }
+  } else if (style === "Link") {
+    styleClasses = "";
+    if (alternate) {
+      textColor = "text-white";
+      iconColor = "text-white";
+    } else {
+      textColor = "text-neutral-darkest";
+      iconColor = "text-neutral-darkest";
+    }
+  }
+
+  let sizeClasses = "";
+  if (small) {
+    sizeClasses = iconPosition === "Only" ? "p-2" : "px-5 py-2 gap-3";
+  } else {
+    sizeClasses = iconPosition === "Only" ? "p-2.5" : "px-6 py-2.5 gap-3";
+  }
+
+  return `${baseClasses} ${styleClasses} ${sizeClasses}`;
+}
+
+function getTextClasses() {
+  return `font-inter font-medium leading-[1.5] not-italic relative shrink-0 text-text-regular text-nowrap whitespace-pre`;
+}
+
+function getIcon() {
+  // Placeholder for icon, use a simple arrow or something
+  return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>`;
+}
+---
+
+<button class={getButtonClasses()}>
+  {iconPosition === "Leading" && icon && <span class="relative shrink-0 w-6 h-6" set:html={getIcon()}></span>}
+  {iconPosition !== "Only" && <span class={getTextClasses()}>{children}</span>}
+  {iconPosition === "Trailing" && icon && <span class="relative shrink-0 w-6 h-6" set:html={getIcon()}></span>}
+  {iconPosition === "Only" && icon && <span class="relative shrink-0 w-6 h-6" set:html={getIcon()}></span>}
+</button>

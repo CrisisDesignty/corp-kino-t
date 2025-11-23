@@ -31,6 +31,16 @@
         "GITHUB_TOOLSETS": "",
         "GITHUB_READ_ONLY": ""
       }
+    },
+    "exa": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "exa-mcp-server"
+      ],
+      "env": {
+        "EXA_API_KEY": "b6fde8bd-2e9e-4836-bcfd-c1f6843ea1a1"
+      }
     }
   }
 }

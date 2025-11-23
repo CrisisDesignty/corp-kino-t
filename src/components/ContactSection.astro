@@ -1,0 +1,77 @@
+---
+import Button from './Button.astro';
+import Input from './Input.astro';
+---
+
+<section class="bg-white pl-20 pr-16 py-16">
+  <div class="max-w-[1280px] mx-auto">
+    <div class="flex flex-col lg:flex-row gap-20 items-center">
+      <!-- Left Column: Contact Form -->
+      <div class="flex flex-col gap-8 flex-shrink-0 lg:w-[632px]">
+        <div class="flex flex-col gap-4">
+          <h2 class="font-roboto font-bold text-h2-mobile lg:text-h2 leading-tight tracking-tight text-neutral-darkest">
+            Hablemos
+          </h2>
+          <p class="font-sans text-text-medium leading-relaxed text-neutral-darkest">
+            Estamos listos para escuchar tus necesidades y diseñar soluciones personalizadas
+          </p>
+        </div>
+
+        <form class="flex flex-col gap-6">
+          <Input
+            label="Nombre"
+            type="text"
+          />
+          <Input
+            label="Correo"
+            type="email"
+          />
+          <div class="flex flex-col gap-2">
+            <label class="font-sans text-text-regular text-neutral-darkest">
+              Mensaje
+            </label>
+            <textarea
+              class="bg-neutral-darkest/5 border border-neutral-darkest/15 rounded-small px-3 py-2 h-24 resize-none font-sans text-text-regular text-neutral-darkest/60 focus:outline-none focus:ring-2 focus:ring-denim"
+              placeholder="Escribe tu mensaje aquí"
+            ></textarea>
+          </div>
+
+          <div class="flex items-center gap-3 pb-4">
+            <input
+              type="checkbox"
+              id="terms"
+              class="w-[18px] h-[18px] bg-neutral-darkest/5 border border-neutral-darkest/15 rounded-small focus:ring-2 focus:ring-denim"
+            />
+            <label for="terms" class="font-sans text-text-small text-neutral-darkest">
+              Acepto términos y condiciones
+            </label>
+          </div>
+
+          <Button style="Secondary">
+            Enviar
+          </Button>
+        </form>
+      </div>
+
+      <!-- Right Column: Content -->
+      <div class="flex flex-col gap-8 justify-center max-w-[768px] flex-shrink-0 lg:w-[575px]">
+        <div class="flex flex-col gap-6 text-denim-darker">
+          <h1 class="font-roboto font-bold text-h2-mobile lg:text-h2 leading-tight tracking-tight">
+            Unidos por la excelencia técnica, la integridad y el cumplimiento responsable.
+          </h1>
+          <p class="font-sans text-text-medium leading-relaxed">
+            Nuestros valores como la sustentabilidad, integridad, innovación y liderazgo nos definen
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <Button style="Primary">
+            Conoce nuestros servicios
+          </Button>
+          <Button style="Secondary">
+            Contáctanos
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

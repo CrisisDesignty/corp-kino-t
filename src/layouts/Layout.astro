@@ -1,5 +1,7 @@
 ---
 const { title } = Astro.props;
+const siteTitle = import.meta.env.SITE_TITLE || 'Corporativo Kino';
+const siteDescription = import.meta.env.SITE_DESCRIPTION || 'Empresa comprometida con la excelencia y la innovación';
 ---
 
 <!DOCTYPE html>
@@ -7,10 +9,12 @@ const { title } = Astro.props;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
+    <meta name="description" content={siteDescription}>
+    <title>{title || siteTitle}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
             margin: 0;

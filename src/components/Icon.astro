@@ -1,0 +1,5 @@
+---
+const { name, class: className } = Astro.props;
+---
+
+<span class={`material-icons ${className || ''}`}>{name}</span>

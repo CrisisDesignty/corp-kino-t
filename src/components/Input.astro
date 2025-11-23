@@ -1,0 +1,47 @@
+---
+export interface Props {
+  type?: string;
+  placeholder?: string;
+  label?: string;
+  alternate?: boolean;
+  hasIcon?: boolean;
+  iconPosition?: "left" | "right";
+}
+
+const {
+  type = "text",
+  placeholder = "Placeholder",
+  label,
+  alternate = false,
+  hasIcon = false,
+  iconPosition = "right"
+} = Astro.props;
+
+function getInputClasses() {
+  const baseClasses = "box-border flex items-center px-3 py-2 relative w-full border border-solid rounded";
+
+  let styleClasses = "";
+  if (alternate) {
+    styleClasses = "bg-white border-white text-neutral-darkest";
+  } else {
+    styleClasses = "bg-neutral-darkest/5 border-neutral-darkest/15 text-neutral-darkest";
+  }
+
+  return `${baseClasses} ${styleClasses}`;
+}
+
+function getIcon() {
+  return `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>`;
+}
+---
+
+{label && <label class="font-sans text-text-regular text-neutral-darkest mb-2 block">{label}</label>}
+<div class={getInputClasses()}>
+  {hasIcon && iconPosition === "left" && <span class="mr-2" set:html={getIcon()}></span>}
+  <input
+    type={type}
+    placeholder={placeholder}
+    class="flex-1 bg-transparent border-none outline-none text-text-regular font-sans focus:outline-none focus:ring-2 focus:ring-denim"
+  />
+  {hasIcon && iconPosition === "right" && <span class="ml-2" set:html={getIcon()}></span>}
+</div>
